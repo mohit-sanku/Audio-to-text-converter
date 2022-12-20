@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Speech Recognition</title>
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+    	body{
+    		font-family: 'Lato', serif;
+    		font-size: 30px;
+    	}
+  	</style>
+		<style>
+			#audioContainer{
+				margin: 20px;
+			}
+
+			#submitButton{
+				background-color: #0191FE;
+				color: white;
+				border-radius: 5px;
+				border: none;
+				padding: 10px 30px;
+				margin-top: 20px;
+			}
+
+			#submitButton:hover{
+				cursor: pointer;
+			}
+
+			#audioTranscriptContainer{
+				margin-top: 20px;
+			}
+
+			#audioText{
+				font-size: 18px;
+				width: 500px;
+			}
+
+			p{
+			font-family: 'Lato', serif;
+    		font-size: 15px;	
+			}
+		</style>
+	<!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/index.css')}}"> -->
+</head>
+
+<body>
+	<div id = "audioContainer">
+		<h1>SPEECH RECOGNIZING WEBSITE</h1>
+		<h2>Upload New File</h2>
+		<form method = "post" enctype="multipart/form-data">
+			<input type="file" name="file" />
+			<br>
+			<input type="submit" id="submitButton" value="Transcribe" />
+		</form>
+		<p> Speech To Text Converter <a href="/flask_app_2">SPEECH-->TEXT</a></p>
+
+		{% if transcript != "" %}
+		<div id="audioTranscriptContainer">
+			<h1>Transcript</h1>
+			<p id="audioText">{{transcript}}</p>
+		</div>
+		{% endif %}
+	</div>
+</body>
+
+</html>
